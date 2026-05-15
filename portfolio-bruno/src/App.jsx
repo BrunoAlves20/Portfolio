@@ -1,188 +1,160 @@
 import React from 'react';
-// Importando os ícones do FontAwesome através do react-icons
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaCode, FaServer, FaCloud } from 'react-icons/fa';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      {/* Menu de Navegação */}
-      <nav className="fixed w-full bg-darkBg/95 border-b border-cardBg py-4 px-8 flex justify-between items-center z-50">
-        <div className="text-accentHover font-bold text-xl tracking-wider">Bruno.dev</div>
-        <ul className="hidden md:flex gap-8 text-textPrimary">
-          <li><a href="#home" className="hover:text-accentHover transition-colors">Home</a></li>
-          <li><a href="#sobre" className="hover:text-accentHover transition-colors">Sobre</a></li>
-          <li><a href="#habilidades" className="hover:text-accentHover transition-colors">Habilidades</a></li>
-          <li><a href="#projetos" className="hover:text-accentHover transition-colors">Projetos</a></li>
+    <div className="bg-darkBg min-h-screen text-offWhite font-sans selection:bg-brandOrange/30">
+      
+      {/* Menu de Navegação - Estilo Vidro */}
+      <nav className="fixed w-full bg-black/60 backdrop-blur-md border-b border-white/5 py-4 px-8 flex justify-between items-center z-50">
+        <div className="text-brandOrange font-bold text-xl tracking-tighter italic">BRUNO.DEV</div>
+        <ul className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest text-lightGray">
+          <li><a href="#home" className="hover:text-brandOrange transition-colors">Home</a></li>
+          <li><a href="#sobre" className="hover:text-brandOrange transition-colors">Sobre</a></li>
+          <li><a href="#habilidades" className="hover:text-brandOrange transition-colors">Habilidades</a></li>
+          <li><a href="#projetos" className="hover:text-brandOrange transition-colors">Projetos</a></li>
+          <li><a href="#contato" className="hover:text-brandOrange transition-colors">Contato</a></li>
         </ul>
       </nav>
 
-      {/* Seção Home */}
-      <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <h1 className="text-5xl md:text-6xl text-textPrimary font-bold mb-4">
-          Olá, sou <span className="text-accentHover">Bruno Nogueira</span>
-        </h1>
-        <h2 className="text-xl md:text-2xl mb-8 text-textSecondary">
-          Back-End Developer e Analista de Sistemas
+      {/* Seção Home - Focada no Visual Glassmorphism (Sem os botões sociais) */}
+      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        {/* Esferas de luz de fundo */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brandOrange/20 rounded-full filter blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brandRed/10 rounded-full filter blur-[120px]"></div>
+
+        <div className="relative z-10 bg-darkGray/20 backdrop-blur-2xl border border-white/10 p-12 md:p-20 rounded-[40px] shadow-2xl max-w-4xl w-full">
+          <span className="text-brandOrange font-semibold tracking-[0.3em] uppercase text-xs mb-6 block">
+            Analista de Sistemas & Back-end
+          </span>
+          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none tracking-tighter">
+            Olá, sou <br/> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brandOrange to-brandRed">
+              Bruno Nogueira
+            </span>
+          </h1>
+          <p className="text-lightGray text-lg md:text-xl max-w-xl mx-auto font-light leading-relaxed">
+            Domino a lógica do Back-end para entregar sistemas que não apenas atendem requisitos, mas superam expectativas de performance e segurança.
+          </p>
+        </div>
+      </section>
+
+      {/* Seção Sobre - Minimalista com Botões de Ação */}
+      <section id="sobre" className="py-32 px-4 flex flex-col items-center">
+        <h2 className="text-4xl font-bold mb-12 flex items-center gap-4">
+          <span className="w-12 h-[2px] bg-brandOrange"></span> Sobre Mim
         </h2>
-        <p className="max-w-2xl text-lg mb-8">
-          Estudante de Análise e Desenvolvimento de Sistemas, cursando o 4º semestre da faculdade.
+        <p className="max-w-3xl text-center text-xl text-lightGray leading-relaxed font-light mb-12">
+          Desenvolvedor Back-end Júnior com base em Python, Java e Cloud, especializado em automação, integração de APIs e engenharia de dados.
+          Busco elevar meu nível técnico rumo ao FullStack através de metodologias ágeis e aprendizado contínuo.
+          Além do código, mantenho foco constante na criação de sistemas eficientes e no aprimoramento do inglês para solucionar desafios complexos e conexões globais.
         </p>
-        
-        {/* Nova Área de Botões com Ícones e Download */}
-        <div className="flex flex-wrap justify-center gap-4">
-          {/* O atributo 'download' avisa o navegador para baixar o arquivo em vez de abrir */}
+
+        {/* Nova Área de Botões com Ícones e Download adaptada para o novo Design */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {/* Botão de Download com o Degradê Laranja/Vermelho */}
           <a 
             href="/curriculo-bruno.pdf" 
             download="Curriculo_Bruno_Nogueira.pdf"
-            className="flex items-center gap-2 px-6 py-3 bg-accentHover text-darkBg rounded hover:bg-accent transition-all font-bold"
+            className="flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-brandOrange to-brandRed text-offWhite rounded-full hover:opacity-90 transition-opacity font-bold shadow-lg"
           >
             <FaDownload /> Baixar Currículo
           </a>
           
+          {/* Botões do LinkedIn e GitHub com efeito Glass/Borda suave */}
           <a 
             href="https://www.linkedin.com/in/brunonogueiraalves/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 border border-accentHover text-accentHover rounded hover:bg-accentHover hover:text-darkBg transition-all font-bold"
+            className="flex items-center gap-3 px-8 py-3 border border-white/20 text-offWhite rounded-full hover:bg-white/10 hover:border-brandOrange transition-all font-bold"
           >
-            <FaLinkedin className="text-xl" /> LinkedIn
+            <FaLinkedin className="text-xl text-brandOrange" /> LinkedIn
           </a>
           
           <a 
             href="https://github.com/BrunoAlves20" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 border border-accentHover text-accentHover rounded hover:bg-accentHover hover:text-darkBg transition-all font-bold"
+            className="flex items-center gap-3 px-8 py-3 border border-white/20 text-offWhite rounded-full hover:bg-white/10 hover:border-brandOrange transition-all font-bold"
           >
-            <FaGithub className="text-xl" /> GitHub
+            <FaGithub className="text-xl text-brandOrange" /> GitHub
           </a>
         </div>
       </section>
 
-      {/* Seção Sobre */}
-      <section id="sobre" className="min-h-[70vh] flex flex-col justify-center items-center px-4">
-        <h2 className="text-3xl font-bold text-textPrimary mb-8 border-b-4 border-accentHover pb-2">Sobre Mim</h2>
-        <p className="max-w-3xl text-center text-lg leading-relaxed">
-          Com as tardes livres após a faculdade, tenho focado intensamente em estudar desenvolvimento de software e aplicar meus conhecimentos em projetos práticos para o meu GitHub. Meu foco principal está no ecossistema de backend, explorando arquiteturas robustas e tecnologias em nuvem. Paralelamente, invisto na fluência no idioma inglês para expandir minhas possibilidades no mercado de tecnologia e atuar em equipes globais.
-        </p>
+      {/* Seção Habilidades - Tags com Degradê */}
+      <section id="habilidades" className="py-32 px-4 bg-gradient-to-b from-darkBg to-black">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-16">Stack Tecnológica</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {['Java', 'Python', 'Linux', 'AWS', 'SQL', 'Generative AI', 'GCP'].map((skill) => (
+              <div key={skill} className="group relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-brandOrange to-brandRed rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative bg-darkBg border border-white/10 px-8 py-4 rounded-xl text-offWhite font-medium">
+                  {skill}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Seção Habilidades */}
-      <section id="habilidades" className="min-h-[70vh] flex flex-col justify-center items-center px-4 bg-cardBg/30">
-        <h2 className="text-3xl font-bold text-textPrimary mb-12 border-b-4 border-accentHover pb-2">Minhas Habilidades</h2>
-        <div className="flex flex-wrap justify-center gap-4 max-w-4xl">
-          {['Java', 'Python', 'Linux', 'AWS Cloud Foundations', 'AWS Cloud Developing', 'Generative AI & Machine Learning', 'SQL / Banco de Dados', 'Cobol'].map((skill) => (
-            <div key={skill} className="bg-cardBg border border-gray-700 text-accentHover px-6 py-3 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(102,252,241,0.2)] transition-all cursor-default">
-              {skill}
+      {/* Seção Projetos - Cards Estilo Vidro */}
+      <section id="projetos" className="py-32 px-4 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold mb-20 text-center">Projetos em Destaque</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            { title: 'API Financeira', tech: ['Java', 'Spring', 'AWS'], icon: <FaServer /> },
+            { title: 'Análise de Dados', tech: ['Python', 'Linux', 'SQL'], icon: <FaCode /> }
+          ].map((proj) => (
+            <div key={proj.title} className="bg-white/5 border border-white/10 p-10 rounded-[30px] hover:border-brandOrange/50 transition-all group">
+              <div className="text-brandOrange text-4xl mb-6 group-hover:scale-110 transition-transform">
+                {proj.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{proj.title}</h3>
+              <p className="text-lightGray mb-8 font-light">Arquitetura de alta performance focada em escalabilidade e segurança de dados.</p>
+              <div className="flex gap-3 mb-8">
+                {proj.tech.map(t => <span key={t} className="text-xs font-bold uppercase tracking-widest text-brandRed">{t}</span>)}
+              </div>
+              <a href="#" className="flex items-center gap-2 text-offWhite font-bold group-hover:text-brandOrange transition-colors">
+                <FaGithub /> EXPLORAR CÓDIGO
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Seção Projetos */}
-      <section id="projetos" className="min-h-[80vh] flex flex-col justify-center items-center px-4 py-20">
-        <h2 className="text-3xl font-bold text-textPrimary mb-12 border-b-4 border-accentHover pb-2">Projetos em Destaque</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
-          <div className="bg-cardBg p-8 rounded-xl border border-gray-700 hover:border-accentHover hover:-translate-y-2 transition-all flex flex-col">
-            <h3 className="text-2xl text-textPrimary font-bold mb-4">API de Serviços Financeiros</h3>
-            <p className="text-textSecondary mb-6 flex-grow">
-              Desenvolvimento de uma API RESTful focada em processamento seguro de transações. Arquitetura pensada para simular regras de negócio complexas, utilizando padrões de projeto e banco de dados relacional.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">Java</span>
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">Spring Boot</span>
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+      {/* Seção Contato - Referência da Imagem */}
+      <section id="contato" className="py-32 px-4 flex flex-col items-center bg-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
+          <div className="bg-darkGray/20 border border-white/5 p-10 rounded-[30px]">
+            <h3 className="text-2xl font-bold mb-8">Compartilhe sua visão</h3>
+            <div className="space-y-4">
+              <input type="text" placeholder="Nome" className="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:border-brandOrange outline-none transition-colors" />
+              <input type="email" placeholder="E-mail" className="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:border-brandOrange outline-none transition-colors" />
+              <textarea placeholder="Sobre o projeto" className="w-full bg-black/50 border border-white/10 p-4 rounded-xl h-32 focus:border-brandOrange outline-none transition-colors"></textarea>
+              <button className="w-full bg-gradient-to-r from-brandOrange to-brandRed py-4 rounded-xl font-bold uppercase tracking-widest">Enviar Mensagem</button>
             </div>
-            <a href="#" className="flex items-center justify-center gap-2 border border-accentHover text-accentHover py-2 rounded font-bold hover:bg-accentHover hover:text-darkBg transition-colors">
-              <FaGithub /> Ver Repositório
-            </a>
           </div>
 
-          <div className="bg-cardBg p-8 rounded-xl border border-gray-700 hover:border-accentHover hover:-translate-y-2 transition-all flex flex-col">
-            <h3 className="text-2xl text-textPrimary font-bold mb-4">Microsserviço de Análise de Dados</h3>
-            <p className="text-textSecondary mb-6 flex-grow">
-              Aplicação voltada para extração e manipulação de grandes volumes de dados. O sistema foi preparado para rodar em ambientes Linux e pensado para futura integração com serviços de nuvem da AWS.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">Python</span>
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">Linux</span>
-              <span className="bg-accent/20 text-accentHover px-3 py-1 rounded-full text-sm">AWS</span>
+          <div className="flex flex-col items-center justify-center p-10 border border-white/5 rounded-[30px] bg-darkGray/10">
+            <h3 className="text-xl font-bold mb-8">Contato Rápido</h3>
+            <div className="bg-white p-4 rounded-2xl mb-8">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mailto:seuemail@gmail.com" alt="QR" />
             </div>
-            <a href="#" className="flex items-center justify-center gap-2 border border-accentHover text-accentHover py-2 rounded font-bold hover:bg-accentHover hover:text-darkBg transition-colors">
-              <FaGithub /> Ver Repositório
-            </a>
+            <p className="text-lightGray mb-2 italic">Escaneie ou copie:</p>
+            <button 
+              onClick={() => {navigator.clipboard.writeText('seuemail@gmail.com'); alert('Copiado!')}}
+              className="px-8 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all font-medium"
+            >
+              nogueirabruno459@gmail.com
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Seção Contato */}
-      <section id="contato" className="min-h-[80vh] flex flex-col justify-center items-center px-4 py-20">
-        <h2 className="text-2xl font-bold text-textPrimary mb-12 text-center">Vamos construir algo incrível juntos.</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
-          {/* Coluna Esquerda: Formulário */}
-          <div className="bg-cardBg p-8 rounded-xl border border-gray-700">
-            <h3 className="text-xl text-textPrimary font-bold mb-6">Compartilhe sua visão</h3>
-            <form className="flex flex-col gap-4">
-              <div className="flex gap-4">
-                <input type="text" placeholder="Nome" className="w-full bg-darkBg border border-gray-700 rounded-md p-3 text-textPrimary focus:outline-none focus:border-accentHover transition-colors" />
-                <input type="text" placeholder="Nicho" className="w-full bg-darkBg border border-gray-700 rounded-md p-3 text-textPrimary focus:outline-none focus:border-accentHover transition-colors" />
-              </div>
-              <input type="email" placeholder="E-mail" className="w-full bg-darkBg border border-gray-700 rounded-md p-3 text-textPrimary focus:outline-none focus:border-accentHover transition-colors" />
-              <select className="w-full bg-darkBg border border-gray-700 rounded-md p-3 text-textSecondary focus:outline-none focus:border-accentHover transition-colors appearance-none">
-                <option value="" disabled selected>Selecione o orçamento</option>
-                <option value="baixo">R$ 1.000 - R$ 5.000</option>
-                <option value="medio">R$ 5.000 - R$ 10.000</option>
-                <option value="alto">Acima de R$ 10.000</option>
-              </select>
-              <textarea placeholder="Sobre o seu projeto (opcional)" rows="4" className="w-full bg-darkBg border border-gray-700 rounded-md p-3 text-textPrimary focus:outline-none focus:border-accentHover transition-colors resize-none"></textarea>
-              <button type="button" className="self-start mt-2 px-6 py-2 bg-[#4b5563] text-white rounded-md hover:bg-[#374151] transition-colors font-medium border border-gray-500">
-                Enviar
-              </button>
-            </form>
-          </div>
-
-          {/* Coluna Direita: Contato Rápido e QR Code */}
-          <div className="bg-cardBg p-8 rounded-xl border border-gray-700 flex flex-col items-center text-center">
-            <h3 className="text-xl text-textPrimary font-bold mb-6">Contato rápido? Escaneie meu código QR!</h3>
-            
-            {/* Imagem do QR Code gerada via API pública - Aponta para o seu email */}
-            <div className="bg-white p-3 rounded-lg mb-8 w-48 h-48 flex items-center justify-center">
-               <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mailto:seuemail@gmail.com" 
-                  alt="QR Code Contato" 
-                  className="w-full h-full" 
-               />
-            </div>
-
-            <div className="w-full bg-darkBg border border-gray-700 rounded-lg p-4 text-left">
-              <p className="text-textPrimary font-bold mb-4 flex items-center gap-2 text-sm md:text-base">
-                <FaEnvelope className="text-pink-400" /> Envie-me um e-mail diretamente:
-                <span className="font-normal text-textSecondary ml-1 break-all">seuemail@gmail.com</span>
-              </p>
-              <div className="flex gap-3">
-                <a href="mailto:seuemail@gmail.com" className="px-5 py-2 bg-[#4b5563] border border-gray-500 text-white rounded-md hover:bg-[#374151] transition-colors text-sm font-medium">
-                  Enviar e-mail
-                </a>
-                <button 
-                  onClick={() => {
-                    navigator.clipboard.writeText('seuemail@gmail.com');
-                    alert('E-mail copiado com sucesso!');
-                  }}
-                  className="px-5 py-2 bg-[#4b5563] border border-gray-500 text-white rounded-md hover:bg-[#374151] transition-colors text-sm font-medium"
-                >
-                   Cópia
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Rodapé */}
-      <footer className="text-center p-6 bg-cardBg border-t border-gray-800 text-textSecondary">
-        <p>&copy; 2026 Bruno Nogueira. Todos os direitos reservados.</p>
+      <footer className="py-12 text-center text-midGray border-t border-white/5 text-xs tracking-widest uppercase">
+        © 2026 Bruno Nogueira — Built for Performance
       </footer>
     </div>
   );

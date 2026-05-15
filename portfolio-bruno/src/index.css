@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-darkBg text-textSecondary font-sans;
+  @apply bg-darkBg text-lightGray font-sans;
 }
